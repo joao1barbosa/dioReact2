@@ -1,39 +1,41 @@
-import { Box, Button, Center, Flex, Spacer, Text } from '@chakra-ui/react'
-import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { changeLocalStorage } from '../services/storage'
-import { AppContext } from './AppContext'
+import {  Box, Button, Center, ChakraProvider, Heading } from "@chakra-ui/react"
+import { changeLocalStorage } from "../services/storage"
+import { useContext, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { AppContext } from "./AppContext"
 
 export const Header  = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AppContext)
-  const navigate = useNavigate()
+  const { userInfo, setUserInfo } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const logout = () => {
-    changeLocalStorage({ login: false})
-    setIsLoggedIn(false)
-    navigate('/')
+    changeLocalStorage({ user: {}});
+    setUserInfo({});
+    navigate('/');
   }
 
   return(
-    <Flex backgroundColor='orange' padding='5px'>
-      <Box>
+    <ChakraProvider>
+      <Box display='grid' gridTemplateColumns='1fr 1fr 1fr'>
+        <Box/>
         <Center>
-          <Text fontSize='3xl'>Dio Bank</Text>
+          <Heading as='h1' size='3xl' color="#000000" paddingBottom="10">
+            Dio Bank
+          </Heading>
         </Center>
+        <Box display='flex' flexDirection='row-reverse'>
+          {
+            !(Object.keys(userInfo).length === 0) && 
+              (
+                <>
+                  <Button width='10%' alignSelf='flex-end' onClick={() => logout()}>
+                    Sair
+                  </Button>
+                </>
+              )
+          }
+        </Box>
       </Box>
-      {
-        isLoggedIn && (
-          <>
-            <Spacer />
-            <Button
-              onClick={() => logout()}
-            >
-              Sair
-            </Button>
-          </>
-        )
-      }
-    </Flex>
-    
+    </ChakraProvider>
   )
 }
