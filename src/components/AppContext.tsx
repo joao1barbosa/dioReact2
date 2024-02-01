@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { getAllLocalStorage } from "../services/storage";
 
-interface User{
+export interface User{
     email?: string,
     password?: string,
     name?: string,
@@ -20,8 +20,6 @@ export const AppContextProvider = ({ children }: any) => {
     const [ userInfo, setUserInfo] = useState<User>({});
 
     const storage = getAllLocalStorage();
-
-    console.log(storage);
 
     useEffect(() => {
       if(storage){
