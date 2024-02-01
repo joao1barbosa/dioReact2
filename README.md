@@ -41,3 +41,5 @@ desenvolvido por [Nathally Souza](https://github.com/nathyts)
 - Escreva os testes unitários para as funções criadas ou refatoradas.
 
 [X] Fazer o deploy no Netlify e compartilhar o link da página
+
+- <a ref='https://main--incredible-gaufre-f02061.netlify.app/'>Deploy</a>
