@@ -1,4 +1,4 @@
-import { ChakraProvider, Input } from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 
 interface InputPlaceProps{
     placeholder: string
@@ -8,7 +8,6 @@ interface InputPlaceProps{
 
 export const InputPlace = (props: InputPlaceProps) => {
     return(
-      <ChakraProvider>
         <Input 
           width='100%' 
           marginTop='10px' 
@@ -16,6 +15,5 @@ export const InputPlace = (props: InputPlaceProps) => {
           type={props.type}
           onChange={(event)=>{props.onChange(event.target.value)}}
         />
-      </ChakraProvider>
     )
   }

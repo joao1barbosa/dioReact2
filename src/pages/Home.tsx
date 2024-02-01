@@ -1,4 +1,4 @@
-import { ChakraProvider, Box, Center, Heading } from "@chakra-ui/react";
+import { Box, Center, Heading } from "@chakra-ui/react";
 import { ButtonSubmit } from "../components/ButtonSubmit";
 import { InputPlace } from "../components/InputPlace";
 import { login } from "../services/login";

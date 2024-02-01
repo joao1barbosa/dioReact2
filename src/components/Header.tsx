@@ -1,4 +1,4 @@
-import {  Box, Button, Center, ChakraProvider, Heading } from "@chakra-ui/react"
+import {  Box, Button, Center, Heading } from "@chakra-ui/react"
 import { changeLocalStorage } from "../services/storage"
 import { useContext} from "react"
 import { useNavigate } from "react-router-dom"
@@ -15,7 +15,6 @@ export const Header  = () => {
   }
 
   return(
-    <ChakraProvider>
       <Box display='grid' gridTemplateColumns='1fr 1fr 1fr'>
         <Box/>
         <Center>
@@ -36,6 +35,5 @@ export const Header  = () => {
           }
         </Box>
       </Box>
-    </ChakraProvider>
   )
 }

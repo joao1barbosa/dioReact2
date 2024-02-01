@@ -19,9 +19,9 @@ export const AppContext = createContext({} as IAppContext);
 export const AppContextProvider = ({ children }: any) => {
     const [ userInfo, setUserInfo] = useState<User>({});
 
-    const storage = getAllLocalStorage();
-
     useEffect(() => {
+      const storage = getAllLocalStorage();
+
       if(storage){
         const { user } = JSON.parse(storage);
         setUserInfo(user);
